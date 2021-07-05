@@ -6,6 +6,9 @@ import 'package:media_house_all/Twitter.dart';
 import 'package:media_house_all/WebSite.dart';
 import 'package:media_house_all/Facebook.dart';
 import 'package:media_house_all/HomePage.dart';
+import 'package:provider/provider.dart';
+
+import 'model/myaudio.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -58,7 +61,6 @@ var cardTextStyle = TextStyle(fontFamily: "Montserrat Regular", fontSize: 12, co
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-
                     children:<Widget> [
                       Text("Diaspora Media Max ", style: TextStyle(fontFamily: 'Montserrat Medium', color: Colors.white, fontSize: 18 ),),
                       Text("The Global Connector", style: TextStyle(fontFamily: 'Montserrat Regular', color: Colors.white, fontSize: 14 ),)
@@ -95,7 +97,12 @@ var cardTextStyle = TextStyle(fontFamily: "Montserrat Regular", fontSize: 12, co
                           ],
                         ),
                       ),
-                        onTap:(){Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()),
+                        onTap:(){
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ChangeNotifierProvider(
+                                  create: (_) => MyAudio(), child: HomePage())
+                          ),
+                          //Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()),
                         );
                         },
                       ),

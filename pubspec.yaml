@@ -29,11 +29,7 @@ dependencies:
   audioplayers: ^0.19.0
   intl: ^0.17.0
   video_player: ^2.1.6
-
-
   provider:
-
-
 
 
   # The following adds the Cupertino Icons font to your application.
